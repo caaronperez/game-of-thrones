@@ -1,0 +1,6 @@
+framework module Pods_GoTTests {
+  umbrella header "Pods-GoTTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
