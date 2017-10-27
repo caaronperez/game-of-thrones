@@ -23,7 +23,6 @@ class ChaptersViewController: UIViewController {
     var editable: Bool? = false;
     var got: Serie?;
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         got = Serie(imdbID: "tt0944947")

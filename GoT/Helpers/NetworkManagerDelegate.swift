@@ -13,7 +13,4 @@ protocol NetworkManagerDelegate: class {
     func didDownloadPost(postArray: [String: Any])
 }
 
-protocol NetworkManagerDelegateClassic: class {
-    func didDownloadPost(postArray: [String: Any])
-}
 

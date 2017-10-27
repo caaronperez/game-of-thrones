@@ -10,13 +10,14 @@ import UIKit
 import SwiftyJSON
 
 final class Serie: NSObject {
-    var title: String?, year: String?, released: String?, genre: String?, writers: String?, country: String?, imdbRating: String?, totalSeasons: String?, seasons: [String:Season]?, imdbID: String;
-   
+    var title: String?, year: String?, released: String?, genre: String?, writers: String?, country: String?, imdbRating: String?, totalSeasons: String?, seasons: [String:Season]?, imdbID: String?
+    var networkRequests: [Any?] = []
     
     init(imdbID: String!){
         self.imdbID = imdbID
         super.init()
         let myNetworkManager = NetworkManager()
+        networkRequests.append(myNetworkManager)
         myNetworkManager.delegate = self
         myNetworkManager.downloadAPIPost(imdbID: imdbID)
     }
@@ -35,7 +36,8 @@ extension Serie: NetworkManagerDelegate {
         self.totalSeasons = postArray[oMDBAPI.totalSeasons] as? String
         if let n = Int(totalSeasons!){
             for i in 1...n{
-                self.seasons?["\(i)"] = Season(imdbID: self.imdbID, season: "\(i)")
+                let season = Season(imdbID: self.imdbID, season: "\(i)")
+                self.seasons?["\(i)"] = season
             }
         }
     }

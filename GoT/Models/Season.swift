@@ -9,15 +9,23 @@
 import UIKit
 import SwiftyJSON
 
-class Season: NSObject {
+final class Season: NSObject {
 
     var season: String?, episodes: [[String:Any]]?, title: String?
+    var networkRequests: [Any?] = []
     
     init(imdbID: String!, season: String){
         super.init()
         let myNetworkManager = NetworkManager()
+        networkRequests.append(myNetworkManager)
         myNetworkManager.delegate = self
-        myNetworkManager.downloadAPIPost(imdbID: "\(imdbID)\(oMDBAPI.seasonEndpoint)\(season)")
+        if let imdb = imdbID {
+            myNetworkManager.downloadAPIPost(imdbID: "\(imdb)\(oMDBAPI.seasonEndpoint)\(season)")
+        }
+    }
+    
+    override init(){
+        
     }
      
 }
