@@ -13,6 +13,7 @@ import SwiftyJSON
 final class NetworkManager {
     
     weak var delegate:NetworkManagerDelegate?
+    weak var delegate2:NetworkManagerDelegate?
   
     func downloadAPIPost(imdbID: String){
         let urlString = URL(string: "\(oMDBAPI.endPoint)\(imdbID)")
@@ -23,7 +24,7 @@ final class NetworkManager {
                 } else {
                     do {
                         if let jsonArray = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] {
-                            DispatchQueue.main.sync {
+                            DispatchQueue.main.async {
                                 self?.delegate?.didDownloadPost(postArray: jsonArray)
                             }
                         }
@@ -34,14 +35,6 @@ final class NetworkManager {
             }
             task.resume()
         }
-        
-        
-        /*Alamofire.request("https://swapi.co/api/people/").responseJSON { (responseData) -> Void in
-            if((responseData.result.value) != nil) {
-                let swiftyJsonVar = JSON(responseData.result.value!)
-                print(swiftyJsonVar)
-            }
-        }*/
     }
 }
 

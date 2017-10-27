@@ -155,6 +155,7 @@
 		BBF246441FA1A15400F0169B /* GoT */ = {
 			isa = PBXGroup;
 			children = (
+				BBFF46061FA35765009605B1 /* Helpers */,
 				BBF2467D1FA1CA9200F0169B /* Controllers */,
 				BBF2467C1FA1CA8C00F0169B /* Models */,
 				BBF2467B1FA1CA7E00F0169B /* Views */,
@@ -200,7 +201,6 @@
 				BB3CC2771FA25F8C00166A67 /* Serie.swift */,
 				BB3CC2791FA25FA800166A67 /* Season.swift */,
 				BB3CC27B1FA25FBD00166A67 /* Chapter.swift */,
-				BB3CC27D1FA2790900166A67 /* oMDBAPI.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,10 +210,18 @@
 			children = (
 				BBF246471FA1A15400F0169B /* ChaptersViewController.swift */,
 				BBF246491FA1A15400F0169B /* SavedViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BBFF46061FA35765009605B1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BB3CC27D1FA2790900166A67 /* oMDBAPI.swift */,
 				BB3CC2741FA25EF000166A67 /* NetworkManager.swift */,
 				BB3CC2731FA25EF000166A67 /* NetworkManagerDelegate.swift */,
 			);
-			path = Controllers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

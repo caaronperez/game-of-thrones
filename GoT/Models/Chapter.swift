@@ -14,13 +14,15 @@ import SwiftyJSON
 class Chapter: NSObject {
     
     var titleChapter: String?, yearChapter: String?, reated: String?, releasedChapter: String?, seasonChapter: String?, episode: String?, runtime: String?, genreChapter: String?, director: String?, writer: String?, actors: String?, plot: String?, language: String?, country: String?, awards: String?, poster: String?, ratings: [String:String]?, metascore: String?, imdbRating: String?, imdbVotes: String?, imdbID: String?, seriesID: String?, type: String?
+    var networkRequests3: [Any?] = []
     
     init(imdbID: String!){
         super.init()
         self.imdbID = imdbID
-        let myNetworkManager = NetworkManager()
-        myNetworkManager.delegate = self
-        myNetworkManager.downloadAPIPost(imdbID: imdbID)
+        let myNetworkManager3 = NetworkManager()
+        networkRequests3.append(myNetworkManager3)
+        myNetworkManager3.delegate = self
+        myNetworkManager3.downloadAPIPost(imdbID: imdbID)
     }
 
 }
