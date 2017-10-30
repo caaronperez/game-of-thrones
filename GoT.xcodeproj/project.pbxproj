@@ -14,8 +14,10 @@
 		BB3CC2761FA25EF000166A67 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3CC2741FA25EF000166A67 /* NetworkManager.swift */; };
 		BB3CC2781FA25F8C00166A67 /* Serie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3CC2771FA25F8C00166A67 /* Serie.swift */; };
 		BB3CC27A1FA25FA800166A67 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3CC2791FA25FA800166A67 /* Season.swift */; };
-		BB3CC27C1FA25FBD00166A67 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3CC27B1FA25FBD00166A67 /* Chapter.swift */; };
 		BB3CC27E1FA2790900166A67 /* oMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3CC27D1FA2790900166A67 /* oMDBAPI.swift */; };
+		BB6AA7D21FA6D3AF004D0D2C /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6AA7D11FA6D3AF004D0D2C /* ChapterViewController.swift */; };
+		BB939BF01FA7BE35009445B8 /* GoT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB939BEE1FA7BE35009445B8 /* GoT.xcdatamodeld */; };
+		BBCE4A811FA7B7810005ED4C /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCE4A801FA7B7810005ED4C /* Chapter.swift */; };
 		BBF246461FA1A15400F0169B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF246451FA1A15400F0169B /* AppDelegate.swift */; };
 		BBF246481FA1A15400F0169B /* ChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF246471FA1A15400F0169B /* ChaptersViewController.swift */; };
 		BBF2464A1FA1A15400F0169B /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF246491FA1A15400F0169B /* SavedViewController.swift */; };
@@ -57,8 +59,10 @@
 		BB3CC2741FA25EF000166A67 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BB3CC2771FA25F8C00166A67 /* Serie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serie.swift; sourceTree = "<group>"; };
 		BB3CC2791FA25FA800166A67 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
-		BB3CC27B1FA25FBD00166A67 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		BB3CC27D1FA2790900166A67 /* oMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oMDBAPI.swift; sourceTree = "<group>"; };
+		BB6AA7D11FA6D3AF004D0D2C /* ChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
+		BB939BEF1FA7BE35009445B8 /* GoT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoT.xcdatamodel; sourceTree = "<group>"; };
+		BBCE4A801FA7B7810005ED4C /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		BBF246421FA1A15400F0169B /* GoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF246451FA1A15400F0169B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBF246471FA1A15400F0169B /* ChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				BBF246451FA1A15400F0169B /* AppDelegate.swift */,
 				BBF2464E1FA1A15400F0169B /* Assets.xcassets */,
 				BBF246501FA1A15400F0169B /* LaunchScreen.storyboard */,
+				BB939BEE1FA7BE35009445B8 /* GoT.xcdatamodeld */,
 				BBF246531FA1A15400F0169B /* Info.plist */,
 			);
 			path = GoT;
@@ -200,7 +205,7 @@
 			children = (
 				BB3CC2771FA25F8C00166A67 /* Serie.swift */,
 				BB3CC2791FA25FA800166A67 /* Season.swift */,
-				BB3CC27B1FA25FBD00166A67 /* Chapter.swift */,
+				BBCE4A801FA7B7810005ED4C /* Chapter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				BBF246471FA1A15400F0169B /* ChaptersViewController.swift */,
+				BB6AA7D11FA6D3AF004D0D2C /* ChapterViewController.swift */,
 				BBF246491FA1A15400F0169B /* SavedViewController.swift */,
 			);
 			path = Controllers;
@@ -486,12 +492,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GoT/Pods-GoT-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -524,11 +532,13 @@
 			files = (
 				BB3CC27A1FA25FA800166A67 /* Season.swift in Sources */,
 				BB3CC2751FA25EF000166A67 /* NetworkManagerDelegate.swift in Sources */,
+				BB939BF01FA7BE35009445B8 /* GoT.xcdatamodeld in Sources */,
 				BB3CC27E1FA2790900166A67 /* oMDBAPI.swift in Sources */,
 				BBF2464A1FA1A15400F0169B /* SavedViewController.swift in Sources */,
-				BB3CC27C1FA25FBD00166A67 /* Chapter.swift in Sources */,
 				BB3CC2761FA25EF000166A67 /* NetworkManager.swift in Sources */,
+				BBCE4A811FA7B7810005ED4C /* Chapter.swift in Sources */,
 				BBF246461FA1A15400F0169B /* AppDelegate.swift in Sources */,
+				BB6AA7D21FA6D3AF004D0D2C /* ChapterViewController.swift in Sources */,
 				BB3CC2781FA25F8C00166A67 /* Serie.swift in Sources */,
 				BBF246481FA1A15400F0169B /* ChaptersViewController.swift in Sources */,
 				BBF246791FA1AB7300F0169B /* TableViewCellController.swift in Sources */,
@@ -835,6 +845,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BB939BEE1FA7BE35009445B8 /* GoT.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BB939BEF1FA7BE35009445B8 /* GoT.xcdatamodel */,
+			);
+			currentVersion = BB939BEF1FA7BE35009445B8 /* GoT.xcdatamodel */;
+			path = GoT.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BBF2463A1FA1A15400F0169B /* Project object */;
 }

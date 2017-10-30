@@ -9,10 +9,11 @@
 import UIKit
 import SwiftyJSON
 
-final class Season: NSObject {
+class Season: NSObject {
 
-    var season: String?, episodes: [[String:Any]]?, title: String?
+    var season: String?, episodes: [[String:Any]]? = [], title: String?
     var networkRequests: [Any?] = []
+    var delegate: NetworkManagerDelegateSeason?
     
     init(imdbID: String!, season: String){
         super.init()
@@ -25,7 +26,6 @@ final class Season: NSObject {
     }
     
     override init(){
-        
     }
      
 }
@@ -36,8 +36,10 @@ extension Season: NetworkManagerDelegate {
         self.title = postArray[oMDBAPI.title] as? String
         if let jsonEpisodes = postArray[oMDBAPI.episodes] as? NSArray {
             for dictionary in jsonEpisodes{
-                episodes?.append(dictionary as! [String: Any])
+                self.episodes?.append(dictionary as! [String: Any])
             }
         }
+        self.delegate?.didDownloadPost(postArray: self)
     }
 }
+
