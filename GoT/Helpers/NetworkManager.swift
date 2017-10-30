@@ -10,10 +10,10 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-final class NetworkManager {
+class NetworkManager {
     
-    weak var delegate:NetworkManagerDelegate?
-    weak var delegate2:NetworkManagerDelegate?
+    var delegate: NetworkManagerDelegate?
+    var image: NetworkManagerImage?
   
     func downloadAPIPost(imdbID: String){
         let urlString = URL(string: "\(oMDBAPI.endPoint)\(imdbID)")
@@ -36,5 +36,26 @@ final class NetworkManager {
             task.resume()
         }
     }
+    
+    func getImage(imgUrl: String){
+        
+        let imgURL = URL(string: imgUrl)
+        let task = URLSession.shared.dataTask(with: imgURL!) { [weak self] (data, response, error) in
+            if error != nil {
+                print(error as Any)
+            } else {
+                do  {
+                    if let imgData =  data{  // conditional casting.
+                        DispatchQueue.main.async { // calling the serial main queue to handle the display of information faster.
+                            self?.image?.didDownloadImage(image: UIImage(data: imgData)!)
+                        }
+                        
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
 }
 

@@ -13,4 +13,18 @@ protocol NetworkManagerDelegate: class {
     func didDownloadPost(postArray: [String: Any])
 }
 
+protocol NetworkManagerDelegateSerie: class {
+    func didDownloadPost(postArray: Serie)
+}
 
+protocol NetworkManagerDelegateSeason: class {
+    func didDownloadPost(postArray: Season)
+}
+
+protocol NetworkManagerDelegateChapter: class {
+    func didDownloadPost(postArray: Chapter)
+}
+
+protocol NetworkManagerImage: class {
+    func didDownloadImage(image: UIImage)
+}

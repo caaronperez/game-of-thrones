@@ -9,7 +9,9 @@ target 'GoT' do
   pod 'Alamofire', '~> 4.0'
   pod 'SwiftyJSON'
   pod 'Cosmos', '~> 12.0'
-
+  pod 'AlamofireImage', '~> 3.3'
+  
+  
   target 'GoTTests' do
     inherit! :search_paths
     # Pods for testing
